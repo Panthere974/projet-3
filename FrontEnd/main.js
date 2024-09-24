@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks[2].className = "active";
     }
 
-    if (currentPath.endsWith("FrontEnd/")) {
+    if (currentPath.endsWith("FrontEnd/") || currentPath.endsWith("index.html")) {
         const button = document.getElementById("categories-all-button");
 
         getAllWorks();
@@ -84,6 +84,31 @@ document.addEventListener("DOMContentLoaded", () => {
             getCategoryWorks("Tous");
             buttons.forEach(button => button.className = "");
             button.className = "active";
+        });
+    } else if (currentPath.endsWith("login.html")) {
+        const errorMessage = document.querySelector('.error-message');
+        console.log("1");
+
+        document.querySelector('.login-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const login = {
+                email: document.querySelector('input[name="email"]').value,
+                password: document.querySelector('input[name="password"]').value,
+            }
+            const loginJson = JSON.stringify(login);
+            const response = await fetch("http://localhost:5678/api/users/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: loginJson
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+                window.localStorage.setItem("token", data.token);
+                window.location.href = "index.html";
+            }
         });
     }
 });
