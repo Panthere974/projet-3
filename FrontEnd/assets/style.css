@@ -29,6 +29,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	display: flex;
+	flex-direction: column;
 	line-height: 1;
 }
 ol, ul {
@@ -94,10 +96,65 @@ nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
-
-li:hover {
+nav a {
+	color: black;
+	text-decoration: none;
+}
+nav a.active {
+	font-weight: 600;
+}
+nav a:hover {
 	color: #B1663C;
 }
+
+
+#login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#login form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#login h1 {
+	font-family: Syne;
+	font-size: 30px;
+	color: #1D6154;
+	margin-bottom: 60px;
+}
+#login button {
+	width: 179px;
+	height: 36px;
+	border-radius: 60px;
+	color: white;
+	background-color: #1D6154;
+	border: none;
+	margin-top: 7px;
+	margin-bottom: 28px;
+}
+#login a {
+	color: #3D3D3D;
+	text-decoration: underline;
+}
+
+.input-group {
+	display: flex;
+	flex-direction: column;
+	width: 379px;
+}
+.input-group label {
+	color: #3D3D3D;
+	margin-bottom: 7px;
+}
+.input-group input {
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px 0px #00000017;
+	margin-bottom: 30px;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
@@ -125,6 +182,33 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.categories {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 1em;
+}
+
+.categories button {
+	display: flex;
+    align-items: center;
+	height: 37px;
+	font-family: 'Syne';
+	font-size: 16px;
+	color: #1D6154;
+	background-color: white;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	padding: 18px;
+}
+
+.categories button.active {
+	color: white;
+	background-color: #1D6154;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
