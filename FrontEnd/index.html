@@ -6,17 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+<div class="edit-mode-bar">
+	<i class="fa-regular fa-pen-to-square"></i>
+	<p>Mode édition</p>
+</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
+			<li><a href="#">projets</a></li>
+			<li><a href="#">contact</a></li>
 			<li><a href="./login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
@@ -35,7 +40,11 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<h2>
+			Mes Projets
+			<i class="fa-regular fa-pen-to-square"></i>
+			<a href="#modal" class="modal-link">modifier</a>
+		</h2>
 		<div class="categories">
 			<button id="categories-all-button" class="active">Tous</button>
 		</div>
@@ -55,6 +64,13 @@
 		</form>
 	</section>
 </main>
+
+<aside id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" style="display: none;">
+	<div class="modal-wrapper modal-stop">
+		<button class="modal-close">X</button>
+		Ma modal
+	</div>
+</aside>
 
 <footer>
 	<nav>
