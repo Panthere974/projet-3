@@ -1,3 +1,18 @@
+const deleteWork = async function(id) {
+    const token = window.localStorage.getItem('token');
+    console.log(token);
+    const workToDelete = document.querySelectorAll(`[data-id="${id}"]`);
+    const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+    });
+    if (response.ok) {
+        workToDelete.forEach(work => work.remove());
+    }
+}
+
 export async function getAllWorks() {
     const gallery = document.querySelector('.gallery');
     const modalGallery = document.querySelector('.modal-gallery');
@@ -17,15 +32,18 @@ export async function getAllWorks() {
         imgGallery.src = work.imageUrl;
         imgGallery.alt = work.title;
         figcaption.textContent = work.title;
+        figure.setAttribute('data-id', work.id);
         figure.appendChild(imgGallery);
         figure.appendChild(figcaption);
         gallery.appendChild(figure);
 
         imgContainer.className = 'image-container';
         trashButton.className = 'trash-button';
+        trash.addEventListener('click', () => deleteWork(work.id));
         trash.className = 'fa-solid fa-trash-can fa-xs';
         imgModal.src = work.imageUrl;
         imgModal.alt = work.title;
+        imgContainer.setAttribute('data-id', work.id);
         imgContainer.appendChild(imgModal);
         trashButton.appendChild(trash);
         imgContainer.appendChild(trashButton);
