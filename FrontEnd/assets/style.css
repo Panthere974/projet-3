@@ -301,12 +301,70 @@ input[type="submit"]{
 }
 
 .modal-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	overflow: auto;
 	width: 630px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
-	padding: 20px;
+	padding: 26px;
+	border-radius: 10px;
 	background-color: white;
+}
+.modal-wrapper .modal-close {
+	text-align: end;
+}
+.modal-wrapper h3 {
+	margin-top: 40px;
+	margin-bottom: 46px;
+	text-align: center;
+	font-size: 26px;
+}
+.modal-wrapper hr {
+	width: 420px;
+	margin-top: 100px;
+	margin-bottom: 38px;
+	color: #B3B3B3;
+}
+.modal-wrapper button {
+	width: 237px;
+	height: 36px;
+	border-radius: 60px;
+	color: white;
+	background-color: #1D6154;
+	border: none;
+	margin-top: 7px;
+	margin-bottom: 28px;
+}
+.modal-gallery {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.modal-gallery .image-container {
+	position: relative;
+	margin-right: 9px;
+	margin-bottom: 29px;
+	width: calc(20% - 9px);
+}
+.modal-gallery img {
+	width: 100%;
+}
+.image-container .trash-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	width: 17px;
+	height: 17px;
+	border: none;
+	border-radius: 2px;
+	color: white;
+	background-color: black;
 }
 
 footer nav ul {
