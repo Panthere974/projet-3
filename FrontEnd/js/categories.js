@@ -1,6 +1,5 @@
 const deleteWork = async function(id) {
     const token = window.localStorage.getItem('token');
-    console.log(token);
     const workToDelete = document.querySelectorAll(`[data-id="${id}"]`);
     const response = await fetch(`http://localhost:5678/api/works/${id}`, {
         method: 'DELETE',
