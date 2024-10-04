@@ -1,4 +1,4 @@
-import * as categories from './js/categories.js';
+import * as categories from './js/works.js';
 import { loginRequest } from "./js/login.js";
 import { login } from "./js/log.js";
 import * as modalFunction from "./js/modal.js";
@@ -6,9 +6,7 @@ import * as modalFunction from "./js/modal.js";
 export const loginForm = document.querySelector('.login-form');
 const button = document.getElementById('categories-all-button');
 const token = window.localStorage.getItem('token');
-const modalLink = document.querySelectorAll('.modal-link').forEach(link => {
-    link.addEventListener('click', modalFunction.openModal);
-});
+const addImageButton = document.getElementById('add-image-button');
 
 if (button) {
     categories.getCategories();
@@ -21,8 +19,14 @@ if (loginForm) {
 }
 
 if (token) {
-    login();    
+    login();
 }
+
+if (addImageButton) {
+    addImageButton.addEventListener('click', modalFunction.openAddImageModal);
+}
+
+document.querySelectorAll('.modal-link').forEach(link => link.addEventListener('click', modalFunction.openModal));
 
 window.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' || e.key === 'Esc') {

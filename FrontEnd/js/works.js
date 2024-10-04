@@ -1,4 +1,6 @@
-const deleteWork = async function(id) {
+const deleteWork = async function(/*e,*/ id) {
+    //e.preventDefault(); à modifier ?
+
     const token = window.localStorage.getItem('token');
     const workToDelete = document.querySelectorAll(`[data-id="${id}"]`);
     const response = await fetch(`http://localhost:5678/api/works/${id}`, {

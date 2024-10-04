@@ -17,7 +17,7 @@ export const loginRequest = async function(e) {
     const data = await response.json();
 
     if (!response.ok) {
-        errorMessage.style.display = 'block';
+        errorMessage.style.display = null;
     } else {
         errorMessage.style.display = 'none';
         window.localStorage.setItem('token', data.token);

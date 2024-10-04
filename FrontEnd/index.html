@@ -68,12 +68,21 @@
 </main>
 
 <aside id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" style="display: none">
-	<div class="modal-wrapper modal-stop">
+	<div class="modal-wrapper modal-stop"></div>
+		<i class="fa-solid fa-arrow-left fa-lg modal-return"></i>
 		<i class="fa-solid fa-xmark fa-lg modal-close"></i>
-		<h3>Galerie Photo</h3>
-		<div class="modal-gallery"></div>
-		<hr>
-		<button id="add-image-button">Ajouter une photo</button>
+		<h3 id="modal-title">Galerie Photo</h3>
+		<div id="modal-gallery" class="modal-gallery"></div>
+		<div id="modal-insert-image" style="display: none">test</div>
+		<form action="#" method="post">
+			<label class="modal-form-element" for="title" style="display: none">Titre</label>
+			<input id="title" class="modal-form-element" type="text" name="title" style="display: none">
+			<label class="modal-form-element" for="category" style="display: none">Catégorie</label>
+			<input id="category" class="modal-form-element" type="text" name="category" style="display: none">
+			<hr>
+			<input id="add-image-button" type="submit" value="Ajouter une photo">
+		</form>
+		<!-- <button id="add-image-button">Ajouter une photo</button> -->
 	</div>
 </aside>
 
