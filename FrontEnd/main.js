@@ -6,7 +6,7 @@ import * as modalFunction from "./js/modal.js";
 export const loginForm = document.querySelector('.login-form');
 const button = document.getElementById('categories-all-button');
 const token = window.localStorage.getItem('token');
-const addImageButton = document.getElementById('add-image-button');
+export const addImageButton = document.getElementById('add-image-button');
 
 if (button) {
     categories.getCategories();

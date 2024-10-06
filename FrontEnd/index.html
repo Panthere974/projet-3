@@ -76,12 +76,22 @@
 		<section id="modal-content">
 			<h3 id="modal-title">Galerie Photo</h3>
 			<div id="modal-gallery" class="modal-gallery"></div>
-			<div id="modal-insert-image" style="display: none">test</div>
-			<form>
+			<form id="modal-form">
+				<div class="modal-form-element photo-file" style="display: none;">
+					<i class="fa-regular fa-image"></i>
+					<label for="photo-file" class="modal-form-element" style="display: none">
+						+ Ajouter une photo
+						<input id="photo-file" type="file" name="photo-file" accept=".jpg, .png" required>
+					</label>
+					<span>jpg, png : 4mo max</span>
+				</div>
 				<label class="modal-form-element" for="title" style="display: none">Titre</label>
-				<input id="title" class="modal-form-element" type="text" name="title" style="display: none">
+				<input id="title" class="modal-form-element" type="text" name="title" style="display: none" required>
 				<label class="modal-form-element" for="category" style="display: none">Catégorie</label>
-				<input id="category" class="modal-form-element" type="text" name="category" style="display: none">
+				<select id="category" class="modal-form-element" name="category" style="display: none" required>
+					<option value=""></option>
+				</select>
+				<span class="error-message" style="display: none;">Le formulaire n’est pas correctement rempli</span>
 				<hr>
 				<input id="add-image-button" type="submit" value="Ajouter une photo">
 			</form>

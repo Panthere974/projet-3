@@ -84,14 +84,25 @@ export const categoriesButtonActive = function(e) {
 
 export async function getCategories() {
     const categories = document.querySelector('.categories');
+    const selector = document.getElementById('category');
     const response = await fetch('http://localhost:5678/api/categories');
     const data = await response.json();
 
+    let counter = 1
+
     data.forEach(category => {
         const button = document.createElement('button');
+        const option = document.createElement('option');
+        
         button.className = 'categories-button';
         button.textContent = category.name;
         button.addEventListener('click', categoriesButtonActive);
         categories.appendChild(button);
+
+        option.value = counter;
+        option.textContent = category.name;
+        selector.appendChild(option);
+
+        counter++;
     });
 }
