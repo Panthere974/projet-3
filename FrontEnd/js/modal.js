@@ -1,5 +1,5 @@
 import { addImageButton } from "../main.js";
-import { dynamicAddWork } from "./works.js";
+import { displayWork } from "./works.js";
 
 let modal = null;
 let formIsCompleted = false;
@@ -62,7 +62,7 @@ const addWork = async function(e) {
         });
         if (response.ok) {
             const data = await response.json();
-            dynamicAddWork(data);
+            displayWork(data);
             toDelete.remove();
             inputPhotoFile.value = null;
             inputTitle.value = null;

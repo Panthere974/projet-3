@@ -4,14 +4,14 @@ import { login } from "./js/log.js";
 import * as modalFunction from "./js/modal.js";
 
 export const loginForm = document.querySelector('.login-form');
-const button = document.getElementById('categories-all-button');
-const token = window.localStorage.getItem('token');
 export const addImageButton = document.getElementById('add-image-button');
+const allCategoriesButton = document.getElementById('all-categories-button');
+const token = window.localStorage.getItem('token');
 
-if (button) {
+if (allCategoriesButton) {
+    categories.getWorks();
     categories.getCategories();
-    categories.getAllWorks();
-    button.addEventListener('click', categories.categoriesButtonActive);
+    allCategoriesButton.addEventListener('click', categories.setActiveCategoryButton);
 }
 
 if (loginForm) {
