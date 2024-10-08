@@ -1,4 +1,26 @@
-import { loginForm } from "../main.js";
+const editModeBar = document.getElementById('edit-mode-bar');
+const header = document.querySelector('header');
+const modifyButton = document.getElementById('modal-link');
+const loginLogoutButton = document.getElementById('login-logout-button');
+
+export const logout = function (e) {
+    e.preventDefault();
+    
+    e.target.textContent = 'login';
+    localStorage.removeItem('token');
+    editModeBar.style.display = 'none';
+    header.style.marginTop = '50px';
+    modifyButton.style.display = 'none';
+    loginLogoutButton.removeEventListener('click', logout);
+};
+
+export function isLog() {
+    editModeBar.style.display = 'flex';
+    header.style.marginTop = '109px';
+    loginLogoutButton.textContent = 'logout';
+    modifyButton.style.display = 'flex';
+    loginLogoutButton.addEventListener('click', logout);
+}
 
 export const loginRequest = async function(e) {
     e.preventDefault();

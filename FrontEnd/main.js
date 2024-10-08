@@ -1,6 +1,6 @@
 import * as categories from './js/works.js';
 import { loginRequest } from "./js/login.js";
-import { login } from "./js/log.js";
+import { isLog } from "./js/login.js";
 import * as modalFunction from "./js/modal.js";
 
 export const loginForm = document.querySelector('.login-form');
@@ -19,7 +19,7 @@ if (loginForm) {
 }
 
 if (token) {
-    login();
+    isLog();
 }
 
 if (addImageButton) {
