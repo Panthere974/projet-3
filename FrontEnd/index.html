@@ -82,12 +82,14 @@
 			<div id="modal-gallery" class="modal-gallery"></div>
 			<form id="modal-form">
 				<div class="modal-form-element photo-file" style="display: none;">
-					<i class="fa-regular fa-image"></i>
-					<label for="photo-file" class="modal-form-element" style="display: none">
-						+ Ajouter une photo
-						<input id="photo-file" type="file" name="photo-file" accept=".jpg, .png" required>
-					</label>
-					<span>jpg, png : 4mo max</span>
+					<div class="photo-file-content">
+						<i class="fa-regular fa-image"></i>
+						<label for="photo-file" class="modal-form-element" style="display: none">
+							+ Ajouter une photo
+							<input id="photo-file" type="file" name="photo-file" accept=".jpg, .png" required>
+						</label>
+						<span>jpg, png : 4mo max</span>
+					</div>
 				</div>
 				<label class="modal-form-element" for="title" style="display: none">Titre</label>
 				<input id="title" class="modal-form-element" type="text" name="title" style="display: none" required>

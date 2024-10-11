@@ -41,6 +41,7 @@ const addWork = async function(e) {
 
     const formData = new FormData();
     const token = window.localStorage.getItem('token');
+    const photoFileContent = document.querySelector('.photo-file-content');
     const toDelete = document.querySelector('.to-delete');
     const inputPhotoFile = document.getElementById('photo-file');
     const inputTitle = document.getElementById('title');
@@ -62,7 +63,9 @@ const addWork = async function(e) {
         });
         if (response.ok) {
             const data = await response.json();
+            data.category = selectCategory.textContent;
             displayWork(data);
+            photoFileContent.style.display = null;
             toDelete.remove();
             inputPhotoFile.value = null;
             inputTitle.value = null;
@@ -98,6 +101,7 @@ export const openAddImageModal = function (e) {
     const modalForm = document.getElementById('modal-form');
     const inputPhotoFile = document.getElementById('photo-file');
     const modalFormElements = document.querySelectorAll('.modal-form-element');
+    const modalDivider = document.querySelector('hr');
 
     modalNavBar.style.justifyContent = 'space-between';
     modalReturn.style.display = null;
@@ -107,6 +111,7 @@ export const openAddImageModal = function (e) {
     modalForm.addEventListener('input', checkForm);
     inputPhotoFile.addEventListener('change', choosePhotoFile);
     modalFormElements.forEach(element => element.style.display = null);
+    modalDivider.style.marginTop = '50px';
     e.target.addEventListener('click', addWork);
     e.target.style.backgroundColor = '#A7A7A7';
     e.target.value = 'Valider';
@@ -122,6 +127,7 @@ const closeAddImageModal = function (e) {
     const inputPhotoFile = document.getElementById('photo-file');
     const errorMessage = document.querySelector('.error-message');
     const modalFormElements = document.querySelectorAll('.modal-form-element');
+    const modalDivider = document.querySelector('hr');
 
     modalNavBar.style.justifyContent = 'end';
     e.target.style.display = 'none';
@@ -132,6 +138,7 @@ const closeAddImageModal = function (e) {
     inputPhotoFile.removeEventListener('change', choosePhotoFile);
     errorMessage.style.display = 'none';
     modalFormElements.forEach(element => element.style.display = 'none');
+    modalDivider.style.marginTop = '0px';
     addImageButton.removeEventListener('click', addWork);
     addImageButton.style.backgroundColor = '#1D6154';
     addImageButton.value = 'Ajouter une photo'

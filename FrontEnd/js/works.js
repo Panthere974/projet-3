@@ -68,7 +68,7 @@ export function displayWork(work) {
     const figure = document.createElement('figure');
     const imgGallery = document.createElement('img');
     const figcaption = document.createElement('figcaption');
-
+    
     imgGallery.src = work.imageUrl;
     imgGallery.alt = work.title;
     figcaption.textContent = work.title;
@@ -88,7 +88,7 @@ export function displayWork(work) {
 
     imgContainer.className = 'image-container';
     trashButton.className = 'trash-button';
-    trash.addEventListener('click', () => deleteWork(work.id));
+    trashButton.addEventListener('click', () => deleteWork(work.id));
     trash.className = 'fa-solid fa-trash-can fa-xs';
     imgModal.src = work.imageUrl;
     imgModal.alt = work.title;
@@ -97,6 +97,8 @@ export function displayWork(work) {
     trashButton.appendChild(trash);
     imgContainer.appendChild(trashButton);
     modalGallery.appendChild(imgContainer);
+    console.log(imgContainer);
+    
 }
 
 export async function getWorks() {

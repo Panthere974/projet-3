@@ -214,7 +214,7 @@ nav a:hover {
 #contact, #login, #modal-content > * {
 	text-align: center;
 }
-#contact h2, #login h2 { /*modal ?*/
+#contact h2, #login h2 {
 	margin-bottom: 20px;
 }
 #contact form, #login form, #modal-content form {
@@ -281,8 +281,7 @@ input[type=file] {
 .modal-wrapper {
 	overflow: auto;
 	width: 630px;
-	max-width: calc(100vw - 20px);
-	max-height: calc(100vh - 20px);
+	max-height: 90%;
 	padding: 25px;
 	border-radius: 10px;
 	background-color: white;
@@ -293,21 +292,21 @@ input[type=file] {
 	justify-content: end;
 }
 #modal-content {
-	padding-left: 80px;
-	padding-right: 80px;
+	margin-left: 50px;
+	margin-right: 50px;
 }
 
 .modal-wrapper h3 {
-	margin-top: 40px;
-	margin-bottom: 46px;
+	margin-bottom: 30px;
 	text-align: center;
 	font-size: 26px;
 }
 .modal-wrapper hr {
 	width: 100%;
-	margin-top: 100px;
-	margin-bottom: 38px;
 	color: #B3B3B3;
+}
+.modal-wrapper input[type="submit"] {
+	margin-bottom: 0;
 }
 .modal-gallery {
 	display: flex;
@@ -316,9 +315,9 @@ input[type=file] {
 }
 .modal-gallery .image-container {
 	position: relative;
-	margin-right: 9px;
-	margin-bottom: 29px;
-	width: calc(20% - 9px);
+	margin-right: 10px;
+	margin-bottom: 15px;
+	width: calc(20% - 10px);
 }
 .modal-gallery img {
 	width: 100%;
@@ -339,12 +338,18 @@ input[type=file] {
 }
 .modal .photo-file {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
 	text-align: center;
 	border-radius: 3px;
 	color: #B9C5CC;
 	background-color: #E8F1F6;
+}
+.photo-file .photo-file-content {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	gap: 0px;
 }
 .photo-file i {
 	font-size: 76px;
@@ -352,11 +357,11 @@ input[type=file] {
 
 .photo-file label {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	width: 40%;
 	height: 36px;
-	margin: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	white-space: nowrap;
 	border-radius: 50px;
 	color: #306685;
 	background-color: #CBD6DC;
