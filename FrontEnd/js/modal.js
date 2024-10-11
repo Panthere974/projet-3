@@ -51,7 +51,7 @@ const addWork = async function(e) {
     if (formIsCompleted) {
         formData.append('image', inputPhotoFile.files[0]);
         formData.append('title', inputTitle.value);
-        formData.append('category',  parseInt(selectCategory.value));
+        formData.append('category', parseInt(selectCategory.value));
         
     
         const response = await fetch('http://localhost:5678/api/works', {
@@ -63,7 +63,9 @@ const addWork = async function(e) {
         });
         if (response.ok) {
             const data = await response.json();
-            data.category = selectCategory.textContent;
+            data.category = {};
+            data.category.name = selectCategory.selectedOptions[0].textContent;
+            
             displayWork(data);
             photoFileContent.style.display = null;
             toDelete.remove();
