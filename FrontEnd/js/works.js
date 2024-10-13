@@ -1,6 +1,4 @@
-const deleteWork = async function(/*e,*/ id) {
-    //e.preventDefault(); à modifier ?
-
+const deleteWork = async function(id) {
     const token = window.localStorage.getItem('token');
     const workToDelete = document.querySelectorAll(`[data-id="${id}"]`);
     const response = await fetch(`http://localhost:5678/api/works/${id}`, {
@@ -20,8 +18,9 @@ export async function displayCategoryWorks(category) {
     galleryImages.forEach(figure => {
         const workCategory = figure.getAttribute('data-category');
 
-        if (category === 'Tous' || workCategory === category) {
+        if (!category || workCategory === category) {
             figure.style.display = null;
+            
         } else {
             figure.style.display = 'none';
         }
@@ -34,7 +33,7 @@ export const setActiveCategoryButton = function(e) {
 
     categoryButtons.forEach(button => button.classList.remove('active'));
     activeButton.classList.add('active');
-    displayCategoryWorks(activeButton.textContent);
+    displayCategoryWorks(activeButton.getAttribute('data-category'));
 }
 
 export async function getCategories() {
@@ -50,6 +49,7 @@ export async function getCategories() {
 
         button.className = 'category-button';
         button.textContent = category.name;
+        button.setAttribute('data-category', category.id);
         button.addEventListener('click', setActiveCategoryButton);
         categories.appendChild(button);
 
@@ -73,7 +73,7 @@ export function displayWork(work) {
     imgGallery.alt = work.title;
     figcaption.textContent = work.title;
     figure.className = 'gallery-image';
-    figure.setAttribute('data-category', work.category.name);
+    figure.setAttribute('data-category', work.categoryId);
     figure.setAttribute('data-id', work.id);
     figure.appendChild(imgGallery);
     figure.appendChild(figcaption);
@@ -97,8 +97,6 @@ export function displayWork(work) {
     trashButton.appendChild(trash);
     imgContainer.appendChild(trashButton);
     modalGallery.appendChild(imgContainer);
-    console.log(imgContainer);
-    
 }
 
 export async function getWorks() {

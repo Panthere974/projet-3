@@ -2,6 +2,7 @@ import * as categories from './js/works.js';
 import { loginRequest } from "./js/login.js";
 import { isLog } from "./js/login.js";
 import * as modalFunction from "./js/modal.js";
+import * as modalFormJs from "./js/modal-form.js";
 
 export const loginForm = document.querySelector('.login-form');
 export const addImageButton = document.getElementById('add-image-button');
@@ -23,10 +24,10 @@ if (token) {
 }
 
 if (addImageButton) {
-    addImageButton.addEventListener('click', modalFunction.openAddImageModal);
+    addImageButton.addEventListener('click', modalFormJs.openAddImageModal);
 }
 
-document.querySelectorAll('.modal-link').forEach(link => link.addEventListener('click', modalFunction.openModal));
+document.querySelector('.modal-link').addEventListener('click', modalFunction.openModal);
 
 window.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' || e.key === 'Esc') {

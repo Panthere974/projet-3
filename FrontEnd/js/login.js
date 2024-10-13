@@ -1,6 +1,7 @@
 const editModeBar = document.getElementById('edit-mode-bar');
 const header = document.querySelector('header');
 const modifyButton = document.getElementById('modal-link');
+const categoriesButtonBar = document.querySelector('.categories');
 const loginLogoutButton = document.getElementById('login-logout-button');
 
 export const logout = function (e) {
@@ -11,6 +12,7 @@ export const logout = function (e) {
     editModeBar.style.display = 'none';
     header.style.marginTop = '50px';
     modifyButton.style.display = 'none';
+    categoriesButtonBar.style.display = null;
     loginLogoutButton.removeEventListener('click', logout);
 };
 
@@ -19,6 +21,7 @@ export function isLog() {
     header.style.marginTop = '109px';
     loginLogoutButton.textContent = 'logout';
     modifyButton.style.display = 'flex';
+    categoriesButtonBar.style.display = 'none';
     loginLogoutButton.addEventListener('click', logout);
 }
 
