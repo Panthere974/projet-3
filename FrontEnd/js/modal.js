@@ -4,11 +4,6 @@ const stopPropagation = function(e) {
     e.stopPropagation();
 }
 
-const focusInModal = function(e) {
-    e.preventDefault();
-    //à faire
-}
-
 export const openModal = function (e) {
     e.preventDefault();
     
